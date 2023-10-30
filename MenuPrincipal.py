@@ -4,7 +4,7 @@ import datetime  #importacion para usar fecha
 #MENU PRINCIPAL
 def menu():
     while True:
-        print("\nMenú Principal")
+        print("\n-----MENU PRINCIPAL-----")
         print("1. Ingresar como alumno")
         print("2. Ingresar como profesor")
         print("3. Ver cursos")
@@ -20,7 +20,7 @@ def menu():
             if validacion == True:
                 print("\nIngreso exitoso como estudiante\n")
                 while True:
-                    print("Sub menú alumno")
+                    print("-----SUB-MENU ALUMNO-----")
                     print("1. Matricularse a un curso")
                     print("2. Desmatricularse de un curso")
                     print("3. Ver curso")
@@ -248,7 +248,7 @@ def menu():
                 if validacion == True:
                     print("\nIngreso exitoso como Profesor\n")
                     while True:
-                        print("Sub menú Profesor")
+                        print("-----SUB-MENU PROFESOR-----")
                         print("1. Dictar curso")
                         print("2. Ver cursos")
                         print("3. Volver al menú principal")
@@ -258,7 +258,6 @@ def menu():
                             nombre_curso = input(
                                 "Ingrese el nombre del curso a dictar(Ingrese la primer letra en mayuscula): "
                             )
-                            codigo = int(input("Ingrese el codigo (un entero)"))
                             if (
                                 nombre_curso == "Ingles I"
                                 or nombre_curso == "Ingles II"
@@ -267,7 +266,7 @@ def menu():
                                 or nombre_curso == "Programacion I"
                                 or nombre_curso == "Programacion II"
                             ):
-                                nuevo_curso = C.Curso(nombre_curso, codigo)
+                                nuevo_curso = C.Curso(nombre_curso)
                                 #Carga de archivos
                                 archivo1 = nuevo_curso.nuevo_Archivo(f"Unidad1{nombre_curso}", datetime.date(2018, 4, 10), "pdf")
                                 archivo2 = nuevo_curso.nuevo_Archivo(f"Unidad2{nombre_curso}", datetime.date(2015, 4, 10), "pdf")
@@ -276,7 +275,7 @@ def menu():
                                 
                                 print(f"Curso dado de alta: {nuevo_curso._nombre_Curso}")
                                 print(
-                                    f" Codigo:{nuevo_curso._prox_Cod}\nContraseña de matriculación:{nuevo_curso._contrasenia_matriculacion}"
+                                    f"Codigo:{nuevo_curso._prox_Cod}\nContraseña de matriculación:{nuevo_curso._contrasenia_matriculacion}\n"
                                 )
                             else:
                                 print(
@@ -288,11 +287,11 @@ def menu():
                             for i in C.Usuario2.mis_cursos:
                                 cont = cont + 1
                                 print(f"{cont} {i}")
-                                sub_opcion4 = int(input("ingrese un numero para ver la cantidad de archivos..."))
+                                sub_opcion4 = int(input("ingrese un numero para ver la cantidad de archivos... "))
                                 if sub_opcion4 == cont:
-                                    print(f"Cantidad de archivos: {len(C.listaarchivos)}")  #imprime la cantidad de archivos
+                                    print(f"Cantidad de archivos: {len(C.listaarchivos)}\n")  #imprime la cantidad de archivos
                                 else:
-                                    print("no hay archivos subidos")
+                                    print("no hay archivos subidos\n")
                         elif sub_opcion == "3":
                             break
                         else:

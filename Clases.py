@@ -29,12 +29,12 @@ class Archivo():
 
 
 class Curso():
-    
-    def __init__(self, nombre_Curso , prox_Cod: int):
+    _prox_Cod = 1
+    def __init__(self, nombre_Curso):
         self._nombre_Curso = nombre_Curso
-        self._prox_Cod= prox_Cod
+        self._prox_Cod = Curso._prox_Cod
         self._contrasenia_matriculacion = None
-    
+        Curso._prox_Cod += 1
 
     def __str__(self):
         return f"Nombre del curso: {self._nombre_Curso}\nCodigo:{self._prox_Cod}\nContrasenia: {self._contrasenia_matriculacion} \n"
